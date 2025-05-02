@@ -1,7 +1,9 @@
+"use client";
+
 import { ArrowDown, ArrowRight, Award, Brain, CheckCircle, FileCheck, Lock, Shield, Sparkles } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-// Ensure the correct path to the TestimonialCard component
+import { ConnectKitButton } from "connectkit"
 import TestimonialCard from "../components/testimonial-card"
 import FeatureCard from "../components/feature-card"
 import StepCard from "../components/step-card"
@@ -34,7 +36,7 @@ export default function Home() {
             <Button variant="outline" className="hidden md:flex">
               Sign In
             </Button>
-            <Button className="bg-primary hover:bg-primary/90">Connect Wallet</Button>
+            <ConnectKitButton />
           </div>
         </nav>
       </header>

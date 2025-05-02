@@ -1,0 +1,10 @@
+GET https://ude.my/UC-6d9e3418-a8da-43e9-a8ae-2f7cde58eed8
+
+HTTP/1.1 301  - Moved Permanently
+date: Fri, 02 May 2025 15:06:58 GMT
+transfer-encoding: chunked
+connection: close
+location: https://www.udemy.com/s/?hash=UC-6d9e3418-a8da-43e9-a8ae-2f7cde58eed8
+server: cloudflare
+cf-ray: 93986cf16cd36eb9-BOM
+alt-svc: h3=":443"; ma=86400

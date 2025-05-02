@@ -12,7 +12,7 @@ export default function UniversityDashboard() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-[#121212] text-[#F0F0F0]">
       <div className="w-full max-w-4xl p-8 rounded-lg border border-[#218380]/30">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 font-handwriting">University Dashboard</h1>
+        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-500 to-blue-500 bg-clip-text text-transparent text-center mb-12 font-handwriting">University Dashboard</h1>
 
         <div className="flex flex-col md:flex-row gap-4 mb-12 items-center">
           <Input

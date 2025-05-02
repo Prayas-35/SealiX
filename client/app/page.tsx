@@ -44,7 +44,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              Verify Your Skills <span className="bg-gradient-to-r from-yellow-300 to-blue-400 bg-clip-text text-transparent">On-Chain</span>
+              Verify Your Skills <span className="bg-gradient-to-r from-yellow-500 to-blue-500 bg-clip-text text-transparent">On-Chain</span>
             </h1>
             <p className="text-xl text-text/80 max-w-md">
               Earn blockchain-verified badges and NFT diplomas that showcase your skills to employers and institutions

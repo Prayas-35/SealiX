@@ -5,9 +5,10 @@ import { Upload } from "lucide-react"
 
 interface FileUploadProps {
   onChange: (files: File[]) => void
+  accept?: string
 }
 
-export function FileUpload({ onChange }: FileUploadProps) {
+export function FileUpload({ onChange, accept }: FileUploadProps) {
   const [isDragging, setIsDragging] = useState(false)
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
 
@@ -55,16 +56,16 @@ export function FileUpload({ onChange }: FileUploadProps) {
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
     >
-      <input type="file" id="file-upload" className="hidden" onChange={handleFileChange} />
+      <input type="file" id="file-upload" className="hidden" onChange={handleFileChange} accept={accept} />
       <label htmlFor="file-upload" className="flex flex-col items-center justify-center cursor-pointer w-full h-full">
-        <Upload className="w-12 h-12 text-[#218380] mb-2" />
-        <p className="text-center text-[#F0F0F0]">Drag and drop files here or click to browse</p>
+        <Upload className="w-6 h-6 text-[#218380] mb-2" />
+        <p className="text-center text-[#F0F0F0] text-sm">UPLOAD OR DROP FILE</p>
         {selectedFiles.length > 0 && (
-          <div className="mt-4">
-            <p className="text-[#218380]">{selectedFiles.length} file(s) selected</p>
-            <ul className="text-sm mt-2">
+          <div className="mt-2">
+            <p className="text-[#218380] text-xs">{selectedFiles.length} file(s) selected</p>
+            <ul className="text-xs mt-1">
               {selectedFiles.map((file, index) => (
-                <li key={index} className="text-[#F0F0F0]/80">
+                <li key={index} className="text-[#F0F0F0]/80 truncate max-w-[200px]">
                   {file.name}
                 </li>
               ))}

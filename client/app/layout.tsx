@@ -1,26 +1,23 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { Inter } from "next/font/google";
-import Providers from "./_providers/provider";
+import type React from "react"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "SealiX",
-  description: "Decentralised Skill Badges",
-};
+  title: "SealiX - Blockchain-Verified Credentials",
+  description: "Earn blockchain-verified badges and NFT diplomas for your skills and achievements.",
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head />
-      <body className={inter.className}>
-        <Providers>
-          {children}
-        </Providers>
-      </body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
-  );
+  )
 }

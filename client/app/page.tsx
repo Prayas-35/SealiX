@@ -9,13 +9,13 @@ import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-text">
+    <div className="min-h-screen bg-background text-foreground dark">
       {/* Header/Navigation */}
       <header className="container mx-auto py-6 px-4">
         <nav className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Award className="h-8 w-8 text-accent" />
-            <span className="text-xl font-bold">SealiX</span>
+            <Award className="h-8 w-8 text-white" />
+            <span className="text-xl font-bold text-white">SealiX</span>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -44,7 +44,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              Verify Your Skills <span className="text-accent">On-Chain</span>
+              Verify Your Skills <span className="bg-gradient-to-r from-yellow-300 to-blue-400 bg-clip-text text-transparent">On-Chain</span>
             </h1>
             <p className="text-xl text-text/80 max-w-md">
               Earn blockchain-verified badges and NFT diplomas that showcase your skills to employers and institutions
@@ -64,37 +64,37 @@ export default function Home() {
             <div className="absolute inset-0 flex items-center justify-center z-20">
               <div className="bg-background/80 backdrop-blur-sm p-8 rounded-xl border border-accent/20 max-w-xs">
                 <div className="flex items-center gap-3 mb-4">
-                  <Award className="h-8 w-8 text-accent" />
+                  <Award className="h-8 w-8 text-yellow-400" />
                   <div>
-                    <h3 className="font-bold">Full-Stack Development</h3>
+                    <h3 className="font-bold text-yellow-400">Full-Stack Development</h3>
                     <p className="text-sm text-text/70">Verified by SealiX</p>
                   </div>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-accent" />
+                    <CheckCircle className="h-4 w-4 text-yellow-400" />
                     <span className="text-sm">React & Next.js</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-accent" />
+                    <CheckCircle className="h-4 w-4 text-yellow-400" />
                     <span className="text-sm">Node.js & Express</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-accent" />
+                    <CheckCircle className="h-4 w-4 text-yellow-400" />
                     <span className="text-sm">Database Design</span>
                   </div>
                 </div>
                 <div className="mt-4 pt-4 border-t border-accent/20 flex justify-between items-center">
                   <span className="text-xs text-text/60">Issued: May 2025</span>
-                  <span className="text-xs bg-accent/20 text-accent px-2 py-1 rounded-full">NFT Verified</span>
+                  <span className="text-xs bg-yellow-200/20 text-yellow-400 px-2 py-1 rounded-full">NFT Verified</span>
                 </div>
               </div>
             </div>
             <Image
-              src="/placeholder.svg?height=800&width=600"
+              src="/demo.png"
               alt="Skill Passport Demo"
               fill
-              className="object-cover"
+              className="object-cover blur-md z-0"
             />
           </div>
         </div>
@@ -120,21 +120,21 @@ export default function Home() {
               number={1}
               title="Complete Courses & Projects"
               description="Finish courses and submit projects to demonstrate your skills and knowledge."
-              icon={<FileCheck className="h-10 w-10 text-accent" />}
+              icon={<FileCheck className="h-10 w-10 text-yellow-400" />}
             />
 
             <StepCard
               number={2}
               title="Earn NFT Credentials"
               description="Receive blockchain-verified badges and NFT diplomas for your achievements."
-              icon={<Award className="h-10 w-10 text-accent" />}
+              icon={<Award className="h-10 w-10 text-yellow-400" />}
             />
 
             <StepCard
               number={3}
               title="Showcase Your Skills"
               description="Share your verified credentials with employers and institutions worldwide."
-              icon={<Sparkles className="h-10 w-10 text-accent" />}
+              icon={<Sparkles className="h-10 w-10 text-yellow-400" />}
             />
           </div>
         </div>
@@ -154,37 +154,37 @@ export default function Home() {
             <FeatureCard
               title="NFT Credentials"
               description="Earn unique, non-fungible tokens that represent your skills and achievements."
-              icon={<Award className="h-6 w-6 text-accent" />}
+              icon={<Award className="h-6 w-6 text-yellow-400" />}
             />
 
             <FeatureCard
               title="AI Skill Agents"
               description="Intelligent agents that help you identify skill gaps and recommend learning paths."
-              icon={<Brain className="h-6 w-6 text-accent" />}
+              icon={<Brain className="h-6 w-6 text-yellow-400" />}
             />
 
             <FeatureCard
               title="Privacy Controls"
               description="You control who sees your credentials and how much information is shared."
-              icon={<Lock className="h-6 w-6 text-accent" />}
+              icon={<Lock className="h-6 w-6 text-yellow-400" />}
             />
 
             <FeatureCard
               title="Instant Verification"
               description="Employers can instantly verify your skills on-chain without lengthy processes."
-              icon={<CheckCircle className="h-6 w-6 text-accent" />}
+              icon={<CheckCircle className="h-6 w-6 text-yellow-400" />}
             />
 
             <FeatureCard
               title="Secure Storage"
               description="Your credentials are securely stored on the blockchain, accessible anywhere."
-              icon={<Shield className="h-6 w-6 text-accent" />}
+              icon={<Shield className="h-6 w-6 text-yellow-400" />}
             />
 
             <FeatureCard
               title="Skill Marketplace"
               description="Connect with employers looking for your specific verified skill set."
-              icon={<Sparkles className="h-6 w-6 text-accent" />}
+              icon={<Sparkles className="h-6 w-6 text-yellow-400" />}
             />
           </div>
         </div>
@@ -226,14 +226,15 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary py-20">
+      <section className="bg-gradient-to-r from-[#218380] to-[#004D61] py-20">
+
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Verify Your Skills?</h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
             Join thousands of professionals who are showcasing their skills with blockchain-verified credentials.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-background">
+            <Button size="lg" className="bg-accent hover:bg-yellow-500 text-white">
               Get Started Now
             </Button>
           </div>

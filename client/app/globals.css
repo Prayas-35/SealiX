@@ -43,6 +43,53 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+@layer base {
+  :root {
+    --background: 0 0% 93%;
+    --foreground: 0 0% 6%;
+    --card: 0 0% 93%;
+    --card-foreground: 0 0% 6%;
+    --popover: 0 0% 93%;
+    --popover-foreground: 0 0% 6%;
+    --primary: 192 100% 81%;
+    --primary-foreground: 0 0% 6%;
+    --secondary: 178 60% 68%;
+    --secondary-foreground: 0 0% 6%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 43 74% 51%;
+    --accent-foreground: 0 0% 6%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 6%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 43 74% 40%;
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 94%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 94%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 94%;
+    --primary: 192 100% 19%;
+    --primary-foreground: 0 0% 94%;
+    --secondary: 178 60% 32%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 0 0% 80%;
+    --muted-foreground: 0 0% 94%;
+    --accent: 43 74% 49%;
+    --accent-foreground: 0 0% 7%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 10%;
+    --border: 0 0% 60%;
+    --input: 0 0% 80%;
+    --ring: 43 74% 60%;
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

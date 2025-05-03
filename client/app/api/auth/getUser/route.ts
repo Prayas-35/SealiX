@@ -4,21 +4,26 @@ import connectToDatabase from "@/app/_middleware/mongodb";
 import { NextResponse } from "next/server";
 import { User } from "@/app/_models/schema";
 
-const getUserHandler = async (req: Request) => {
+const getHandler = async (req: Request) => {
     try {
-        const { walletAddress } = await req.json();
+        const url = new URL(req.url);
+        const walletAddress = url.searchParams.get('walletAddress');
+        
         if (!walletAddress) {
             return NextResponse.json({
                 message: "Wallet address is required"
             }, { status: 400 });
         }
+
         await connectToDatabase();
         const user = await User.findOne({ walletAddress });
+        
         if (!user) {
             return NextResponse.json({
                 message: "User not found"
-            }, { status: 404 });
+            }, { status: 401 });
         }
+
         return NextResponse.json({
             name: user.name,
             email: user.email,
@@ -29,4 +34,8 @@ const getUserHandler = async (req: Request) => {
             message: "Error fetching user data"
         }, { status: 500 });
     }
+}
+
+export {
+    getHandler as GET,
 }

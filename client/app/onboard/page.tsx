@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation"
 
 export default function OnboardingPage() {
     const { isConnected, isConnecting, address } = useAccount()
+    const router = useRouter()
 
     const [formData, setFormData] = useState({
         name: '',
@@ -16,7 +17,29 @@ export default function OnboardingPage() {
     })
     const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
     const [isClient, setIsClient] = useState(false)
-    const router = useRouter()
+
+    useEffect(() => {
+        const checkExistingUser = async () => {
+            if (address) {
+                try {
+                    const response = await fetch(`/api/auth/getUser?walletAddress=${address}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (response.status === 200) {
+                        router.push('/student/dashboard');
+                    }
+                } catch (error) {
+                    console.error('Error checking user:', error);
+                }
+            }
+        };
+
+        checkExistingUser();
+    }, [address, router]);
 
     useEffect(() => {
         setIsClient(true)
@@ -49,7 +72,7 @@ export default function OnboardingPage() {
             }
 
             const data = await response.json()
-            router.push('/students/dashboard')
+            router.push('/student/dashboard')
             console.log(data)
         } catch (error) {
             console.error('Error:', error)

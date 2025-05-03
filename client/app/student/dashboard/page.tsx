@@ -96,7 +96,7 @@ export default function StudentDashboard() {
 
         {/* Profile Button */}
         <div className="mt-10 flex justify-center">
-          <Link href="/students/profile">
+          <Link href="/student/profile">
             <Button className="bg-yellow-500 hover:bg-yellow-200 text-black transition-colors">
               Go to Profile
             </Button>

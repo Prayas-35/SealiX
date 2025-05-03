@@ -37,37 +37,6 @@ const postHandler = async (req: Request) => {
     }
 }
 
-// Function to get wallet address by email
-const getHandler = async (req: Request) => {
-    try {
-        const { email } = await req.json();
-
-        if (!email) {
-            return NextResponse.json({
-                message: "Email is required"
-            }, { status: 400 });
-        }
-
-        await connectToDatabase();
-        const user = await User.findOne({ email });
-
-        if (!user) {
-            return NextResponse.json({
-                message: "User not found"
-            }, { status: 404 });
-        }
-
-        return NextResponse.json({
-            walletAddress: user.walletAddress
-        }, { status: 200 });
-    } catch (error) {
-        return NextResponse.json({
-            message: "Error fetching wallet address"
-        }, { status: 500 });
-    }
-}
-
 export {
     postHandler as POST,
-    getHandler as GET,
 }

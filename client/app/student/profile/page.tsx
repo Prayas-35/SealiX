@@ -28,7 +28,7 @@ export default function StudentProfile() {
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-[#121212] text-[#F0F0F0] relative">
       {/* Go to Dashboard Button */}
       <div className="absolute top-6 right-6">
-        <Link href="/students/dashboard">
+        <Link href="/student/dashboard">
           <button className="px-4 py-2 bg-yellow-500 text-black rounded-lg hover:bg-yellow-200 transition">
             Go to Dashboard
           </button>

@@ -86,6 +86,7 @@ export default function OnboardingPage() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative z-10 w-full max-w-md"
         >
+            {null /* Ensure children are explicitly passed here */}
             <div className="rounded-2xl bg-gradient-to-br from-[#1A1A1A] to-[#151515] p-8 shadow-[0_10px_50px_rgba(0,0,0,0.3)] border border-[#2A2A2A]/30 backdrop-blur-sm">
                 <div className="mb-8 text-center">
                     <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#004D61] to-[#218380]">
@@ -109,27 +110,29 @@ export default function OnboardingPage() {
                     className="relative flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#004D61] to-[#218380] py-4 px-6 font-medium text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#218380] focus:ring-offset-2 focus:ring-offset-[#1A1A1A] overflow-hidden group"
                     disabled={isConnecting || isConnected}
                 >
-                    <div className="absolute inset-0 h-full w-1/4 bg-white/20 skew-x-[45deg] transition-all duration-500 -translate-x-full group-hover:translate-x-[400%]"></div>
+                    <>
+                        <div className="absolute inset-0 h-full w-1/4 bg-white/20 skew-x-[45deg] transition-all duration-500 -translate-x-full group-hover:translate-x-[400%]"></div>
 
-                    {isConnecting ? (
-                        <div className="flex items-center gap-2">
-                            <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
-                            <span>Connecting...</span>
-                        </div>
-                    ) : isConnected ? (
-                        <div className="flex items-center gap-2">
-                            <span>Connected</span>
-                            <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    fillRule="evenodd"
-                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
-                        </div>
-                    ) : (
-                        <ConnectKitButton />
-                    )}
+                        {isConnecting ? (
+                            <div className="flex items-center gap-2">
+                                <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                                <span>Connecting...</span>
+                            </div>
+                        ) : isConnected ? (
+                            <div className="flex items-center gap-2">
+                                <span>Connected</span>
+                                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clipRule="evenodd"
+                                    />
+                                </svg>
+                            </div>
+                        ) : (
+                            <ConnectKitButton />
+                        )}
+                    </>
                 </motion.button>
 
                 <div className="mt-8 text-center">

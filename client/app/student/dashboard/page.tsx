@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { UploadModal } from "@/components/upload-modal";
 import { DocumentsModal } from "@/components/documents-modal";
@@ -43,7 +44,7 @@ export default function StudentDashboard() {
               </h2>
               <Button
                 onClick={() => setDocumentsModalOpen(true)}
-                className="w-full bg-transparent hover:bg-[#218380]/20 text-[#F0F0F0] border border-[#218380] hover:border-[#F0F0F0] transition-colors"
+                className="w-full bg-[#218380] hover:bg-[#218380]/20 text-[#F0F0F0] border border-[#218380] hover:border-[#F0F0F0] transition-colors"
               >
                 VIEW
               </Button>
@@ -61,7 +62,7 @@ export default function StudentDashboard() {
               </h2>
               <Button
                 onClick={() => setUploadModalOpen(true)}
-                className="w-full bg-transparent hover:bg-[#218380]/20 text-[#F0F0F0] border border-[#218380] hover:border-[#F0F0F0] transition-colors"
+                className="w-full bg-[#218380] hover:bg-[#218380]/20 text-[#F0F0F0] border border-[#218380] hover:border-[#F0F0F0] transition-colors"
               >
                 UPLOAD
               </Button>
@@ -91,6 +92,15 @@ export default function StudentDashboard() {
                     ))}
             </div>
           </div>
+        </div>
+
+        {/* Profile Button */}
+        <div className="mt-10 flex justify-center">
+          <Link href="/students/profile">
+            <Button className="bg-yellow-500 hover:bg-yellow-200 text-black transition-colors">
+              Go to Profile
+            </Button>
+          </Link>
         </div>
       </div>
 

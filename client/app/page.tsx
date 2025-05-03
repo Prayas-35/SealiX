@@ -8,12 +8,14 @@ import TestimonialCard from "../components/testimonial-card"
 import FeatureCard from "../components/feature-card"
 import StepCard from "../components/step-card"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 export default function Home() {
+  const router = useRouter()
   return (
-    <div className="min-h-screen bg-background text-foreground dark">
+    <div className="min-h-screen bg-background text-foreground dark px-4 md:px-6 lg:px-8">
       {/* Header/Navigation */}
-      <header className="container mx-auto py-6 px-4">
+      <header className="container mx-auto py-6">
         <nav className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Award className="h-8 w-8 text-white" />
@@ -21,44 +23,44 @@ export default function Home() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link href="#" className="hover:text-accent transition-colors">
+            <Link href="#" className="hover:text-[#82fff9] transition-colors">
               Home
             </Link>
-            <Link href="#how-it-works" className="hover:text-accent transition-colors">
+            <Link href="#how-it-works" className="hover:text-[#82fff9] transition-colors">
               How It Works
             </Link>
-            <Link href="#features" className="hover:text-accent transition-colors">
+            <Link href="#features" className="hover:text-[#82fff9] transition-colors">
               Features
             </Link>
           </div>
 
           <div className="flex items-center gap-4">
-            <Button variant="outline" className="hidden md:flex">
-              Sign In
-            </Button>
             <ConnectKitButton />
           </div>
         </nav>
       </header>
-
+      
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 md:py-32">
+      <section className="container mx-auto py-96 md:py-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              Verify Your Skills <span className="bg-gradient-to-r from-yellow-500 to-blue-500 bg-clip-text text-transparent">On-Chain</span>
+              Verify Your Skills <br /> <span className="bg-gradient-to-r from-yellow-500 to-blue-500 bg-clip-text text-transparent">On-Chain.</span>
             </h1>
             <p className="text-xl text-text/80 max-w-md">
               Earn blockchain-verified badges and NFT diplomas that showcase your skills to employers and institutions
               worldwide.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline">
-                Learn More
-              </Button>
+                <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 px-96 py-4"
+                onClick={() => router.push('/onboard')}
+                >
+                Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              
+              
             </div>
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden border border-secondary/20">
@@ -101,15 +103,15 @@ export default function Home() {
           </div>
         </div>
         <div className="flex justify-center mt-16">
-          <a href="#how-it-works" className="animate-bounce bg-background/10 p-2 rounded-full border border-accent/20">
-            <ArrowDown className="h-6 w-6 text-accent" />
+          <a href="#how-it-works" className="animate-bounce bg-[#82fff9] p-2 rounded-full border border-accent/20">
+            <ArrowDown className="h-6 w-6 text-black" />
           </a>
         </div>
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="bg-background/50 py-20">
-        <div className="container mx-auto px-4">
+      <section id="how-it-works" className="bg-background/50 py-20 px-4 md:px-6 lg:px-8">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
             <p className="text-text/70 max-w-2xl mx-auto">
@@ -143,8 +145,8 @@ export default function Home() {
       </section>
 
       {/* Features Grid */}
-      <section id="features" className="py-20">
-        <div className="container mx-auto px-4">
+      <section id="features" className="py-20 px-4 md:px-6 lg:px-8">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Platform Features</h2>
             <p className="text-text/70 max-w-2xl mx-auto">
@@ -192,45 +194,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What People Are Saying</h2>
-            <p className="text-text/70 max-w-2xl mx-auto">
-              Hear from users and institutions who have experienced the power of SealiX
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <TestimonialCard
-              quote="SealiX has completely transformed how we verify candidate skills. The blockchain verification is instant and reliable."
-              name="Sarah Johnson"
-              title="HR Director, TechCorp"
-              avatarUrl="/placeholder.svg?height=100&width=100"
-            />
-
-            <TestimonialCard
-              quote="As a self-taught developer, SealiX gave me a way to prove my abilities to employers without a traditional degree."
-              name="Michael Chen"
-              title="Software Engineer"
-              avatarUrl="/placeholder.svg?height=100&width=100"
-            />
-
-            <TestimonialCard
-              quote="The NFT credentials from SealiX have become a standard requirement for our hiring process. They're simply more reliable."
-              name="Emily Rodriguez"
-              title="CTO, BlockFin"
-              avatarUrl="/placeholder.svg?height=100&width=100"
-            />
-          </div>
-        </div>
-      </section>
+      
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-[#218380] to-[#004D61] py-20">
-
-        <div className="container mx-auto px-4 text-center">
+      <section className="bg-gradient-to-r from-[#218380] to-[#004D61] py-20 px-4 md:px-6 lg:px-8 rounded-lg">
+        <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Verify Your Skills?</h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
             Join thousands of professionals who are showcasing their skills with blockchain-verified credentials.
@@ -244,8 +212,8 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-background py-12 border-t border-secondary/20">
-        <div className="container mx-auto px-4">
+      <footer className="bg-background py-12 border-t border-secondary/20 px-4 md:px-6 lg:px-8">
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">

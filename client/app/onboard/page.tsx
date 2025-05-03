@@ -5,15 +5,18 @@ import { Wallet, Mail, User } from "lucide-react"
 import { motion } from "framer-motion"
 import { ConnectKitButton } from "connectkit"
 import { useAccount } from "wagmi"
+import { useRouter } from "next/navigation"
 
 export default function OnboardingPage() {
     const { isConnected, isConnecting, address } = useAccount()
+
     const [formData, setFormData] = useState({
         name: '',
         email: ''
     })
     const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
     const [isClient, setIsClient] = useState(false)
+    const router = useRouter()
 
     useEffect(() => {
         setIsClient(true)
@@ -29,6 +32,29 @@ export default function OnboardingPage() {
         
         return () => window.removeEventListener('resize', handleResize)
     }, [])
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        try {
+            const response = await fetch('/api/auth/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ ...formData, walletAddress: address })
+            })
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok')
+            }
+
+            const data = await response.json()
+            router.push('/students/dashboard')
+            console.log(data)
+        } catch (error) {
+            console.error('Error:', error)
+        }
+    }
 
     const WalletConnectionModal = () => (
         <motion.div
@@ -165,6 +191,7 @@ export default function OnboardingPage() {
                         whileTap={{ scale: 0.98 }}
                         className="relative w-full rounded-xl bg-gradient-to-r from-[#004D61] to-[#218380] py-4 px-6 font-medium text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#218380] focus:ring-offset-2 focus:ring-offset-[#1A1A1A] overflow-hidden group"
                         type="submit"
+                        onClick={handleSubmit}
                     >
                         Continue
                         <div className="absolute inset-0 h-full w-1/4 bg-white/20 skew-x-[45deg] transition-all duration-500 -translate-x-full group-hover:translate-x-[400%]"></div>
